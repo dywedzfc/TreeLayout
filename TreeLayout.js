@@ -27,11 +27,11 @@ define(["dijit/Dialog", "dojox/layout/ContentPane", "dojo/dom-construct", "dojo/
 			createMenuHtml: function (data, li_className, a_className, ul) {
 				var li = dc.place('<li class="' + li_className + '"></li>', ul);
 				var aTag = null;
-				if (data.href) {
+				if (data.href || data.href === '') {
 					aTag = dc.place(dc.create('a', {href: 'javascript:void(0);', class: a_className, skip: data.href}), li);
 				} else if (data.item) {
 					aTag = dc.place(dc.create('a', {href: 'javascript:void(0);', class: a_className, show: data.id + 'Panel'}), li);
-					var nevItem = dc.place(dc.create('ul', {class: 'nevItem', style: {display: 'none'}}), li);
+					var nevItem = dc.place(dc.create('ul', {class: 'nevItem', id: data.id + 'Panel', style: {display: 'none'}}), li);
 					for (var i = 0, item = data.item; i < item.length; i++) {
 						var menuLevel2 = this.menuLevel.m2, j;
 						if (this.menu.indexOf(data) >= 0) {
@@ -56,6 +56,9 @@ define(["dijit/Dialog", "dojox/layout/ContentPane", "dojo/dom-construct", "dojo/
 				}
 				dc.create('i', {class: 'icon_' + data.id}, aTag);
 				dc.create('span', {innerHTML: data.name}, aTag);
+				if (data.item) {
+					dc.create('i', {class: 'iconfont icon-arrow', innerHTML: ''}, aTag);
+				}
 			},
 			createHoverMenuHtml: function (thisOne, menu, menuLevel, submenuPanel) {
 				for (var i = 0; i < menu.length; i++) {
@@ -150,9 +153,14 @@ define(["dijit/Dialog", "dojox/layout/ContentPane", "dojo/dom-construct", "dojo/
 							dojo.addClass(this, 'selected');
 							return false;
 						}
-						dojo.query('#' + idName + ' li .nevTitle').removeClass('selected');
-						dojo.query('.li_nevItem2 .childTitle').removeClass('selected');
-						dojo.addClass(this, 'selected');
+						if(dojo.attr(item.childNodes[0],'class').indexOf('selected') >= 0) {
+							dojo.removeClass(this, 'selected');
+							dojo.query('.li_nevItem2 .childTitle').removeClass('selected');
+						} else {
+							dojo.query('#' + idName + ' li .nevTitle').removeClass('selected');
+							dojo.query('.li_nevItem2 .childTitle').removeClass('selected');
+							dojo.addClass(this, 'selected');
+						}
 						var nevItem = item.childNodes[1];
 						if (dojo.query(nevItem).length !== 0) {
 							if ('none' === dojo.query(nevItem).style('display')[0]) {
@@ -162,7 +170,7 @@ define(["dijit/Dialog", "dojox/layout/ContentPane", "dojo/dom-construct", "dojo/
 									}
 								});
 								fx.wipeIn({node: nevItem}).play();
-								console.info('TreeLayou2-display:',fx.wipeOut({ node: item }))
+								// console.info('TreeLayou2-display:',fx.wipeOut({ node: item }))
 							} else {
 								fx.wipeOut({node: nevItem}).play();
 							}
@@ -255,10 +263,7 @@ define(["dijit/Dialog", "dojox/layout/ContentPane", "dojo/dom-construct", "dojo/
 			jumpPage: function (itemTitle, menuLevels) {
 				for (var i = 0; i < menuLevels.length; i++) {
 					var menuLevel = menuLevels[i];
-					var title = itemTitle.children.length === 0 ? dojo.trim(query(itemTitle).text()) :
-						itemTitle.children.length === 1 ? dojo.trim(query(itemTitle.children[0]).text()) :
-							dojo.trim(query(itemTitle.children[1]).text());
-					if (title === dojo.trim(menuLevel.name)) {
+					if (dojo.trim(query(itemTitle).text()) === dojo.trim(menuLevel.name)) {
 						var index = getTabIndex(menuLevel.name);
 						if(index == -1){
 							if (menuLevel.href){
