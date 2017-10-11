@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>主菜单</title>
+	<style>
+		#container_panel {
+			padding: 0;
+		}
+		.titleItem {
+			display: block;
+			padding-left: 10px;
+			padding-right: 10px;
+			text-decoration: none;
+			color: #fff;
+		}
+		.hover > .titleItem {
+			background: #4E5465;
+		}
+		.selected > .titleItem {
+			background: #292c35;
+		}
+		.nevItem_l1 > .titleItem {
+			height: 40px;
+			line-height: 40px;
+		}
+		.nevItem_l2 > .titleItem {
+			height: 30px;
+			line-height: 30px;
+			text-indent: 1em;
+		}
+		.nevItem_l3 > .titleItem {
+			height: 25px;
+			line-height: 25px;
+			text-indent: 2em;
+		}
+		.childPanel {
+			padding-top: 5px;
+			padding-bottom: 5px;
+			background: #393d49;
+		}
+	</style>
+</head>
+<body>
+<div id="container_panel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="selected:true, title:'杭州调度中心出租后台维护系统'">
+	<ul id="mainSplitterLeft"></ul>
+</div>
+<script type="text/javascript">
+	require(["app/TreeLayout", "dojo/domReady!"], function (TreeLayout) {
+//		new TreeLayout('mainSplitterLeft', czchtglMenu, {m2: czchtglMenuLevel2, m3: []}, {'bgc': '#cfe5fa', 'fc': '#000'}).init();
+		new TreeLayout('mainSplitterLeft', meun, {defaultDisplay: true}).init();
+	});
+</script>
+</body>
+</html>

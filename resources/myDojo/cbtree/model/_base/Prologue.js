@@ -1,0 +1,2 @@
+//>>built
+define("cbtree/model/_base/Prologue",[],function(){"use strict";var _1;function _2(_3,_4){function _5(_6,_7){var _8=this.getIdentity(_6);var _9=_7.parent;var _a,np=[];var _b,i;if(_9 instanceof Array){for(i=0;i<_9.length;i++){if(_a=this.getIdentity(_9[i])){if(_a!=_8&&np.indexOf(_a)==-1){np?np.push(_a):np=[_a];}}}}else{if(_a=this.getIdentity(_9)){if(_a!=_8){np=_a;}}else{np=_b;}}return np;};if(_4&&_4.parent&&this.hierarchical!==true){_3[this.parentProperty]=_5.call(this,_3,_4);}};return _2;});

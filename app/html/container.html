@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>标签页</title>
+	<style>
+		#mainContainer {
+			padding: 0;
+		}
+		#mainContainerLeft {
+			width: 200px;
+			padding: 0;
+			background: #393d49;
+		}
+		#mainContainerCenter {
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+<div id="mainContainer" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="persist:true,gutters:true, liveSplitters:true">
+	<div id="mainContainerLeft" data-dojo-type="dojox/layout/ContentPane" data-dojo-props="splitter:false,region:'left'" href="./app/html/container_left.html"></div>
+	<div id="mainContainerCenter" data-dojo-type="dojox/layout/ContentPane" data-dojo-props="splitter:false, region:'center'">
+		<div id="mainContainer-tabBox"></div>
+	</div>
+</div>
+<script type="text/javascript">
+	require(["dijit/layout/TabContainer", "dojox/layout/ContentPane", "dojo/domReady!"], function (TabContainer, ContentPane) {
+		tc = new TabContainer({
+			style: "height: 100%; width: 100%;"
+		}, "mainContainer-tabBox");
+
+		/*var cp1 = new ContentPane({
+			title: "值班",
+			href: '',
+			sign: 'root|zbbym'
+		});
+		cp1.onShow = function () {
+			tc.resize();
+		};
+		tc.addChild(cp1);*/
+		tc.startup();
+
+	});
+</script>
+</body>
+</html>

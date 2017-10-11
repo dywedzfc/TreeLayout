@@ -1,0 +1,2 @@
+//>>built
+define("cbtree/Evented",["dojo/aspect","dojo/on"],function(_1,on){"use strict";function _2(){this.on=function(_3,_4){function _5(_6,_7){var _8=_6.constructor;var _9=_8._onMap;if(!_9){_9=(_8._onMap={});for(var _a in _8.prototype){if(/^on/.test(_a)){_9[_a.replace(/^on/,"").toLowerCase()]=_a;}}}var _b=_9[_7.toLowerCase()]||"on"+_7;return _b;};return on.parse(this,_3,_4,function(_c,_d){return _1.after(_c,_5(_c,_d),_4,true);});};this.emit=function(_e,_f){var _10=[this];if(!_f.type){_f.type=_e;}_10.push.apply(_10,arguments);return on.emit.apply(on,_10);};};return _2;});

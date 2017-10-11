@@ -1,0 +1,2 @@
+//>>built
+define("cbtree/util/IE8_Event",function(){function _1(_2,_3,_4,_5){this.target=_2;this.currentTarget=_2;this.eventPhase=2;this.bubbles=!!(_4&&_4.bubbles);this.cancelable=!!(_4&&_4.cancelable);this.isTrusted=false;this.defaultPrevented=false;this.ieEventObject=_5;this.type=_3;this.stopPropagation=this.stopImmediatePropagation=function(){_5.cancelBubble=true;};this.preventDefault=function(){_5.returnValue=false;this.defaultPrevented=true;};};return _1;});

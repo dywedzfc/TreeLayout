@@ -1,0 +1,2 @@
+//>>built
+define("cbtree/model/TreeStoreModel",["dojo/_base/declare","dojo/_base/lang","dojo/when","./_base/CheckedStoreModel"],function(_1,_2,_3,_4){"use strict";var _5=_1([_4],{getChildren:function(_6,_7,_8){this._getChildren(_6,function(_9,id){return this.store.getChildren(_9,this.options);},_7,_8);},toString:function(){return "[object TreeStoreModel]";}});return _5;});

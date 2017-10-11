@@ -1,0 +1,5 @@
+require(["app/TreeLayout", "dojo/domReady!"], function (TreeLayout) {
+	new TreeLayout('menuListDemo', textMeun, {defaultDisplay: false}).init();
+});
+
+//defaultDisplay属性，是否默认选中第一个有链接的菜单项，并打开标签页

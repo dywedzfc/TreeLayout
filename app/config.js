@@ -1,0 +1,38 @@
+dojoConfig = {
+	packages : [ {
+		name : "app",
+		location : "/TreeLayout/app"
+	}],
+	parseOnLoad: true
+};
+
+var basePath = '';
+
+var meun = [
+	{id: 'ddxt1', pid: 'root', title: '调度系统1', closable: true},
+	{id: 'cldd1-1', pid: 'ddxt1', title: '基础显示', icon: 'icon-ddxt', href: 'app/html/api/jcxs.html', closable: true},
+	{id: 'cldd1-2', pid: 'ddxt1', title: '车辆调度1-2', icon: 'icon-ddxt', closable: true},
+	{id: 'ddxt2', pid: 'root', title: '调度系统2', closable: true},
+	{id: 'cldd2-1', pid: 'ddxt2', title: '车辆调度2-1', icon: 'icon-ddxt', closable: true},
+	{id: 'cldd2-2', pid: 'ddxt2', title: '车辆调度2-2', icon: 'icon-ddxt', closable: true},
+	{id: 'cldd2-3', pid: 'ddxt2', title: '车辆调度2-3', icon: 'icon-ddxt', href: '', closable: true},
+	{id: 'cldd2-1-1', pid: 'cldd2-1', title: '子车辆调度2-1-1', icon: 'icon-ddxt', href: '', closable: true},
+	{id: 'cldd2-1-2', pid: 'cldd2-1', title: '子车辆调度2-1-2', icon: 'icon-ddxt', href: '', closable: true},
+	{id: 'cldd2-2-1', pid: 'cldd2-2', title: '子车辆调度2-2-1', icon: 'icon-ddxt', href: '', closable: true}
+];
+var textMeun = [
+	{id: 'ddxt1', pid: 'root', title: '调度系统1', closable: true},
+	{id: 'cldd1-1', pid: 'ddxt1', title: '车辆调度1-1', icon: 'icon-ddxt', closable: true},
+	{id: 'cldd1-2', pid: 'ddxt1', title: '车辆调度1-2', icon: 'icon-ddxt', closable: true},
+	{id: 'cldd1-3', pid: 'ddxt1', title: '车辆调度1-3', icon: 'icon-ddxt', href: '', closable: true},
+	{id: 'cldd1-1-1', pid: 'cldd1-1', title: '子车辆调度1-1-1', icon: 'icon-ddxt', href: '', closable: true},
+	{id: 'cldd1-1-2', pid: 'cldd1-1', title: '子车辆调度1-1-2', icon: 'icon-ddxt', href: '', closable: true},
+	{id: 'cldd1-2-1', pid: 'cldd1-2', title: '子车辆调度1-2-1', icon: 'icon-ddxt', href: '', closable: true},
+	{id: 'ddxt2', pid: 'root', title: '调度系统2', closable: true},
+	{id: 'cldd2-1', pid: 'ddxt2', title: '车辆调度2-1', icon: 'icon-ddxt', closable: true},
+	{id: 'cldd2-2', pid: 'ddxt2', title: '车辆调度2-2', icon: 'icon-ddxt', closable: true},
+	{id: 'cldd2-3', pid: 'ddxt2', title: '车辆调度2-3', icon: 'icon-ddxt', href: '', closable: true},
+	{id: 'cldd2-1-1', pid: 'cldd2-1', title: '子车辆调度2-1-1', icon: 'icon-ddxt', href: '', closable: true},
+	{id: 'cldd2-1-2', pid: 'cldd2-1', title: '子车辆调度2-1-2', icon: 'icon-ddxt', href: '', closable: true},
+	{id: 'cldd2-2-1', pid: 'cldd2-2', title: '子车辆调度2-2-1', icon: 'icon-ddxt', href: '', closable: true}
+];
